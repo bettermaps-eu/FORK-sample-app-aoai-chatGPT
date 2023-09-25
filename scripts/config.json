@@ -1,14 +1,14 @@
 [
     {
-        "data_path": "<path to data>",
-        "location": "<azure region, e.g. 'westus2'>",
-        "subscription_id": "<subscription id>",
-        "resource_group": "<resource group name>",
-        "search_service_name": "<search service name to use or create>",
-        "index_name": "<index name to use or create>",
+        "data_path": "../data/doc biographies txt english",
+        "location": "northeurope",
+        "subscription_id": "d0ab12cd-f930-4d81-8109-8e1abc886245",
+        "resource_group": "bettermaps-resources",
+        "search_service_name": "bmb-cognitivesearch",
+        "index_name": "bmb-chatdocuments-english-index",
         "chunk_size": 1024,
         "token_overlap": 128,
         "semantic_config_name": "default",
-        "language": "<Language to support for example use 'en' for English. Checked supported languages here under lucene - https://learn.microsoft.com/en-us/azure/search/index-add-language-analyzers"
+        "language": "en"
     }
 ]
