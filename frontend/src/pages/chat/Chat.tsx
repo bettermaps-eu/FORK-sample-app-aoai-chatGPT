@@ -544,8 +544,20 @@ const Chat = () => {
                                     className={styles.chatIcon}
                                     aria-hidden="true"
                                 />
-                                <h1 className={styles.chatEmptyStateTitle}>Start chatting</h1>
-                                <h2 className={styles.chatEmptyStateSubtitle}>This chatbot is configured to answer your questions</h2>
+                                <h1 className={styles.chatEmptyStateTitle}>Biografías relativas a la participación española</h1><h1 className={styles.chatEmptyStateTitle}>en la Guerra de la Independencia Norteamericana</h1>
+                                <h2 className={styles.chatEmptyStateSubtitle}>Este chatbot permite interrogar biografias de 20 personajes hispanos que estuvieron implicados en este periodo historico</h2>
+                                <div className={styles.containerexamples}>
+                                    <div className={styles.item}>
+                                        <p className={styles.text}>Nacimiento y muerte de Bernardo de Gálvez</p>
+                                    </div>
+                                    <div className={styles.item}>
+                                        <p className={styles.text}>¿Cuál fue la ocupación principal de José Solano y Bote durante su vida?</p>
+                                    </div>
+                                    <div className={styles.item}>
+                                        <p className={styles.text}>¿Qué influencia tuvo sobre Tomás de Iriarte su tío Juan de Iriarte en su educación y desarrollo literario?</p>
+                                    </div>
+                                </div>
+
                             </Stack>
                         ) : (
                             <div className={styles.chatMessageStream} style={{ marginBottom: isLoading ? "40px" : "0px"}} role="log">
@@ -641,7 +653,7 @@ const Chat = () => {
                                     }}
                                     className={appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured ? styles.clearChatBroom : styles.clearChatBroomNoCosmos}
                                     iconProps={{ iconName: 'Broom' }}
-                                    onClick={appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured ? clearChat : newChat}
+                                    onClick={clearChat}
                                     disabled={disabledButton()}
                                     aria-label="clear chat button"
                                 />
