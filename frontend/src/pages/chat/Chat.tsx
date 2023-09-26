@@ -545,7 +545,7 @@ const Chat = () => {
                                     aria-hidden="true"
                                 />
                                 <h1 className={styles.chatEmptyStateTitle}>Biografías relativas a la participación española</h1><h1 className={styles.chatEmptyStateTitle}>en la Guerra de la Independencia Norteamericana</h1>
-                                <h2 className={styles.chatEmptyStateSubtitle}>Este chatbot permite interrogar biografias de 20 personajes hispanos que estuvieron implicados en este periodo historico</h2>
+                                <h2 className={styles.chatEmptyStateSubtitle}>Este chatbot permite interrogar biografías de 20 personajes hispanos que estuvieron implicados en este periodo histórico</h2>
                                 <div className={styles.containerexamples}>
                                     <div className={styles.item}>
                                         <p className={styles.text}>Nacimiento y muerte de Bernardo de Gálvez</p>
