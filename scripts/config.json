@@ -1,6 +1,6 @@
 [
     {
-        "data_path": "../data/doc biographies txt english",
+        "data_path": "../data",
         "location": "northeurope",
         "subscription_id": "d0ab12cd-f930-4d81-8109-8e1abc886245",
         "resource_group": "bettermaps-resources",
