@@ -551,10 +551,10 @@ const Chat = () => {
                                         <p className={styles.text}>Nacimiento y muerte de Bernardo de Gálvez</p>
                                     </div>
                                     <div className={styles.item}>
-                                        <p className={styles.text}>¿Cuál fue la ocupación principal de José Solano y Bote durante su vida?</p>
+                                        <p className={styles.text}>¿Cuál fue el papel de Antonio Barceló en el bloqueo de Gibraltar durante la guerra contra Inglaterra?</p>
                                     </div>
                                     <div className={styles.item}>
-                                        <p className={styles.text}>¿Qué influencia tuvo sobre Tomás de Iriarte su tío Juan de Iriarte en su educación y desarrollo literario?</p>
+                                        <p className={styles.text}>¿Cuál fue el legado de Juan Manuel de Cagigal en la historia militar de Cuba y España?</p>
                                     </div>
                                 </div>
 
