@@ -1,10 +1,10 @@
 [
     {
         "data_path": "../data",
-        "location": "northeurope",
+        "location": "westeurope",
         "subscription_id": "d0ab12cd-f930-4d81-8109-8e1abc886245",
         "resource_group": "bettermaps-resources",
-        "search_service_name": "bmb-cognitivesearch",
+        "search_service_name": "bettermaps-cognitivesearch",
         "index_name": "bmb-chatdocuments-english-index",
         "chunk_size": 1024,
         "token_overlap": 128,
