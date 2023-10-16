@@ -1,4 +1,3 @@
-###
 import json
 import os
 import logging
@@ -360,6 +359,7 @@ def conversation_internal(request_body):
 def add_conversation():
     authenticated_user = get_authenticated_user_details(request_headers=request.headers)
     user_id = authenticated_user['user_principal_id']
+    user_mail = authenticated_user['user_name'] #Extraemos el MAIL de usuario que se autentica
 
     ## check request for conversation_id
     conversation_id = request.json.get("conversation_id", None)
@@ -373,7 +373,7 @@ def add_conversation():
         history_metadata = {}
         if not conversation_id:
             title = generate_title(request.json["messages"])
-            conversation_dict = cosmos_conversation_client.create_conversation(user_id=user_id, title=title)
+            conversation_dict = cosmos_conversation_client.create_conversation(user_id=user_id, user_mail=user_mail, title=title) #Añadimos el nuevo paráetro del mail
             conversation_id = conversation_dict['id']
             history_metadata['title'] = title
             history_metadata['date'] = conversation_dict['createdAt']
@@ -385,6 +385,7 @@ def add_conversation():
             cosmos_conversation_client.create_message(
                 conversation_id=conversation_id,
                 user_id=user_id,
+                user_mail=user_mail, #añadimos el nuevo paráemtro del mail
                 input_message=messages[-1]
             )
         else:
@@ -405,6 +406,7 @@ def add_conversation():
 def update_conversation():
     authenticated_user = get_authenticated_user_details(request_headers=request.headers)
     user_id = authenticated_user['user_principal_id']
+    user_mail = authenticated_user['user_name'] #Extraemos el MAIL de usuario que se autentica
 
     ## check request for conversation_id
     conversation_id = request.json.get("conversation_id", None)
@@ -427,12 +429,14 @@ def update_conversation():
                 cosmos_conversation_client.create_message(
                     conversation_id=conversation_id,
                     user_id=user_id,
+                    user_mail=user_mail, #añadimos el nuevo paráemtro del mail
                     input_message=messages[-2]
                 )
             # write the assistant message
             cosmos_conversation_client.create_message(
                 conversation_id=conversation_id,
                 user_id=user_id,
+                user_mail=user_mail, #añadimos el nuevo paráemtro del mail
                 input_message=messages[-1]
             )
         else:
@@ -482,6 +486,14 @@ def list_conversations():
     ## return the conversation ids
 
     return jsonify(conversations), 200
+
+
+@app.route("/requestheaders", methods=["GET"])
+def list_headers_prueba():
+    ## return the header
+    request_headers = dict(request.headers)
+    return jsonify(request_headers), 200
+
 
 @app.route("/history/read", methods=["POST"])
 def get_conversation():
