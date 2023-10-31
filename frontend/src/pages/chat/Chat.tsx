@@ -501,6 +501,7 @@ const Chat = () => {
         setActiveCitation([citation.content, citation.id, citation.title ?? "", citation.filepath ?? "", "", ""]);
         setIsCitationPanelOpen(true);
     };
+    
 
     const parseCitationFromMessage = (message: ChatMessage) => {
         if (message?.role && message?.role === "tool") {
@@ -591,7 +592,7 @@ const Chat = () => {
                                         <div className={styles.chatMessageGpt}>
                                             <Answer
                                                 answer={{
-                                                    answer: "Generating answer...",
+                                                    answer: "Generando respuesta...",
                                                     citations: []
                                                 }}
                                                 onCitationClicked={() => null}
@@ -667,7 +668,7 @@ const Chat = () => {
                             </Stack>
                             <QuestionInput
                                 clearOnSend
-                                placeholder="Type a new question..."
+                                placeholder="Escribe una nueva pregunta..."
                                 disabled={isLoading}
                                 onSend={(question, id) => {
                                     appStateContext?.state.isCosmosDBAvailable?.cosmosDB ? makeApiRequestWithCosmosDB(question, id) : makeApiRequestWithoutCosmosDB(question, id)
@@ -679,7 +680,7 @@ const Chat = () => {
                     {messages && messages.length > 0 && isCitationPanelOpen && activeCitation && (
                     <Stack.Item className={styles.citationPanel} tabIndex={0} role="tabpanel" aria-label="Citations Panel">
                         <Stack aria-label="Citations Panel Header Container" horizontal className={styles.citationPanelHeaderContainer} horizontalAlign="space-between" verticalAlign="center">
-                            <span aria-label="Citations" className={styles.citationPanelHeader}>Citations</span>
+                            <span aria-label="Citations" className={styles.citationPanelHeader}>Citas</span>
                             <IconButton iconProps={{ iconName: 'Cancel'}} aria-label="Close citations panel" onClick={() => setIsCitationPanelOpen(false)}/>
                         </Stack>
                         <h5 className={styles.citationPanelTitle} tabIndex={0}>{activeCitation[2]}</h5>
